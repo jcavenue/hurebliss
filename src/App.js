@@ -1,28 +1,27 @@
 import { Routes, Route } from 'react-router-dom'
-import Home from './components/homepage/Home'
-import Login from './components/homepage/Login'
-import About from './components/homepage/About'
-import Contact from './components/homepage/Contact'
-import Header from './components/homepage/Header'
-import Footer from './components/homepage/Footer'
-import Dashboard from './components/dashboard/Dashboard'
+import {
+  HomepageLayout,
+  Home,
+  Login,
+  About,
+  ErrorPage,
+  Contact,
+} from './Pages/Homepage'
+import { Dashboard } from './Pages/Dashboard'
 
 function App() {
   return (
     <>
-      <Header />
-      <hr />
       <Routes>
-        <Route path="/About" element={<About />} />
-        <Route path="/Contact" element={<Contact />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
-        <Route path="/Login" element={<Login />}>
-          <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/" element={<HomepageLayout />}>
+          <Route index path="/" element={<Home />} />
+          <Route path="Login" element={<Login />} />
+          <Route path="About" element={<About />} />
+          <Route path="Contact" element={<Contact />} />
+          <Route path="*" element={<ErrorPage />} />
         </Route>
-        <Route path="/" element={<Home />} />
+        <Route path="/Dashboard" element={<Dashboard />}></Route>
       </Routes>
-      <hr />
-      <Footer />
     </>
   )
 }
