@@ -5,20 +5,21 @@ const Login = () => {
 
   const authenticate = (e) => {
     e.preventDefault()
-
-    navigate('/Dashboard')
+		const username = "admin"
+    navigate(`/${username}`)
   }
 
   return (
     <>
-      <h3>Login</h3>
+      <h2>Login</h2>
       <form
         onSubmit={(e) => {
           authenticate(e)
         }}
       >
-        <input type="email" /> <br />
-        <input type="password" /> <br />
+				<h3>Sign in your Account</h3>
+				<p><input type="email" /></p>
+				<p> <input type="password" /></p>
         <button type="submit">sign in</button>
       </form>
     </>

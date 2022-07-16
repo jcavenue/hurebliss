@@ -8,13 +8,13 @@ const HomepageLayout = () => {
         <Link to="/">
           <li>Home</li>
         </Link>
-        <Link to="/About">
+        <Link to="About">
           <li>About</li>
         </Link>
-        <Link to="/Contact">
+        <Link to="Contact">
           <li>Contact</li>
         </Link>
-        <Link to="/Login">
+        <Link to="Login">
           <li>Login</li>
         </Link>
       </ul>
