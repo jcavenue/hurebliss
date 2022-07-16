@@ -5,7 +5,7 @@ const Login = () => {
 
   const authenticate = (e) => {
     e.preventDefault()
-		const username = "admin"
+    const username = 'admin'
     navigate(`/${username}`)
   }
 
@@ -17,9 +17,14 @@ const Login = () => {
           authenticate(e)
         }}
       >
-				<h3>Sign in your Account</h3>
-				<p><input type="email" /></p>
-				<p> <input type="password" /></p>
+        <h3>Sign in your Account</h3>
+        <p>
+          <input type="email" />
+        </p>
+        <p>
+          {' '}
+          <input type="password" />
+        </p>
         <button type="submit">sign in</button>
       </form>
     </>
