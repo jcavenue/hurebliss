@@ -15,11 +15,11 @@ function App() {
     <Routes>
       <Route path="/" element={<HomepageLayout />}>
         <Route index element={<Home />} />
-        <Route path="Login" element={<Login />} />
-        <Route path="About" element={<About />} />
-        <Route path="Contact" element={<Contact />} />
+        <Route path="login" element={<Login />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
       </Route>
-      <Route path=":username" element={<DashboardLayout />}>
+      <Route path="/dashboard" element={<DashboardLayout />}>
         <Route index element={<Dashboard />} />
         <Route path="manage-users-setting" element={<UserSettings />}>
           <Route path="create-user" element={<CreateUser />} />

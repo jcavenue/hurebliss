@@ -1,21 +1,27 @@
-import { Outlet, Link, useNavigate, useParams } from 'react-router-dom'
+import { Outlet, Link, useNavigate, Navigate } from 'react-router-dom'
+import { UserAuth } from '../../Context/AuthContext'
 
 const DashboardLayout = () => {
+  const { userLogout, user } = UserAuth()
   const navigate = useNavigate()
-  const { username } = useParams()
 
-  return (
+  const handleLogout = async () => {
+    try {
+      await userLogout()
+      navigate('/login')
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
+
+  return !user ? (
+    <Navigate to={'/login'} />
+  ) : (
     <>
-      <h1>Welcome {username}</h1>
-      <form
-        onSubmit={(e) => {
-          navigate('/Login')
-        }}
-      >
-        <button type="submit">Sign out</button>
-      </form>
+      <h1>Welcome {user.email}</h1>
+      <button onClick={handleLogout}>Sign Out</button>
       <br />
-      <Link to={`/${username}`}>Dashboard</Link>
+      <Link to={'/dashboard'}>Dashboard</Link>
       <br />
       <Link to="manage-users-setting">Manage User Account</Link>
       <br />
