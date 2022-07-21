@@ -1,9 +1,8 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useContext, useState } from 'react'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged,
+  signOut
 } from 'firebase/auth'
 import { auth } from '../Firebase'
 
@@ -23,22 +22,14 @@ export const AuthContextProvider = ({ children }) => {
 
   const userLogin = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password)
+						.then((response) => {
+							console.log(response.user)
+							setUser(response.user)
+						}).catch((error) => {
+							console.log(error.message)
+							console.log('Email / Password do not match')
+						})
   }
-
-  useEffect(() => {
-    if (user === false) {
-      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-        const { email } = currentUser
-        setUser(email)
-      })
-
-      return () => {
-        unsubscribe()
-      }
-    }
-
-    // eslint-disable-next-line
-  }, [])
 
   return (
     <UserContext.Provider value={{ createUser, user, userLogout, userLogin }}>
