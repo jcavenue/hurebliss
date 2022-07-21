@@ -16,7 +16,7 @@ const DashboardLayout = () => {
 
   // If user has no accessToken Redirect to Login page
   return !user.accessToken ? (
-    <Navigate to={'/login'} />
+    <Navigate to={'/unauthorized'} />
   ) : (
     <>
       <h1>Welcome {user.email}</h1>
