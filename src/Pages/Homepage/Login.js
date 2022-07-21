@@ -39,7 +39,7 @@ const Login = () => {
         <h3>Sign in your Account</h3>
         <p>
           <input
-            type="email"
+            type="email" autoComplete="email"
             onChange={(e) => {
               setEmail(e.target.value)
             }}
@@ -47,7 +47,7 @@ const Login = () => {
         </p>
         <p>
           <input
-            type="password"
+            type="password" autoComplete="current-password"
             onChange={(e) => {
               setPassword(e.target.value)
             }}

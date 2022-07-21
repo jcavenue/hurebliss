@@ -33,10 +33,10 @@ const CreateUser = () => {
         }}
       >
         <p>
-          Email <input type="email" ref={emailRef} />
+          Email <input type="email" ref={emailRef} autoComplete="new-email"/>
         </p>
         <p>
-          Password <input type="password" ref={passwordRef} />
+          Password <input type="password" ref={passwordRef} autoComplete="new-password"/>
         </p>
         <button type="submit">Create Account</button>
       </form>
