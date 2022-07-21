@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { UserAuth } from '../../Context/AuthContext'
 
 const Login = () => {
-  const { userLogin } = UserAuth()
+  const { userLogin, setUser } = UserAuth()
   const [error, setError] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -16,13 +16,17 @@ const Login = () => {
     setError('')
     setconfirmed('')
 
-    try {
-      await userLogin(email, password)
-      navigate('/dashboard')
-    } catch (error) {
-      setError(error.message)
-      console.log(error.message)
-    }
+    userLogin(email, password)
+      .then((response) => {
+        console.log(response.user)
+        setUser(response.user)
+        navigate('/dashboard')
+      })
+      .catch((error) => {
+        setError('Email / Password do not match')
+        console.log(error.message)
+        console.log('Email / Password do not match')
+      })
   }
 
   return (
@@ -39,7 +43,8 @@ const Login = () => {
         <h3>Sign in your Account</h3>
         <p>
           <input
-            type="email" autoComplete="email"
+            type="email"
+            autoComplete="email"
             onChange={(e) => {
               setEmail(e.target.value)
             }}
@@ -47,7 +52,8 @@ const Login = () => {
         </p>
         <p>
           <input
-            type="password" autoComplete="current-password"
+            type="password"
+            autoComplete="current-password"
             onChange={(e) => {
               setPassword(e.target.value)
             }}

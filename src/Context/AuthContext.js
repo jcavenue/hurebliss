@@ -2,7 +2,7 @@ import { createContext, useContext, useState } from 'react'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
-  signOut
+  signOut,
 } from 'firebase/auth'
 import { auth } from '../Firebase'
 
@@ -22,17 +22,12 @@ export const AuthContextProvider = ({ children }) => {
 
   const userLogin = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password)
-						.then((response) => {
-							console.log(response.user)
-							setUser(response.user)
-						}).catch((error) => {
-							console.log(error.message)
-							console.log('Email / Password do not match')
-						})
   }
 
   return (
-    <UserContext.Provider value={{ createUser, user, userLogout, userLogin }}>
+    <UserContext.Provider
+      value={{ createUser, user, userLogout, userLogin, setUser }}
+    >
       {children}
     </UserContext.Provider>
   )
