@@ -36,6 +36,8 @@ export const AuthContextProvider = ({ children }) => {
         unsubscribe()
       }
     }
+
+	// eslint-disable-next-line
   }, [])
 
   return (
