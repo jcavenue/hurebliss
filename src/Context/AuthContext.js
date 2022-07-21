@@ -5,7 +5,7 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth'
-import { auth } from '../Firebase/Firebase'
+import { auth } from '../Firebase'
 
 const UserContext = createContext()
 
@@ -17,6 +17,7 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   const userLogout = () => {
+    setUser(false)
     return signOut(auth)
   }
 
@@ -25,13 +26,15 @@ export const AuthContextProvider = ({ children }) => {
   }
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      console.log(currentUser)
-      setUser(currentUser)
-    })
+    if (user === false) {
+      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        const { email } = currentUser
+        setUser(email)
+      })
 
-    return () => {
-      unsubscribe()
+      return () => {
+        unsubscribe()
+      }
     }
   }, [])
 

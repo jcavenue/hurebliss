@@ -1,4 +1,4 @@
-import React from 'react'
+import { StrictMode } from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import { BrowserRouter } from 'react-router-dom'
@@ -9,13 +9,13 @@ import { AuthContextProvider } from './Context/AuthContext'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <BrowserRouter>
       <AuthContextProvider>
         <App />
       </AuthContextProvider>
     </BrowserRouter>
-  </React.StrictMode>
+  </StrictMode>
 )
 
 // If you want your app to work offline and load faster, you can change

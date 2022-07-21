@@ -18,7 +18,7 @@ const DashboardLayout = () => {
     <Navigate to={'/login'} />
   ) : (
     <>
-      <h1>Welcome {user.email}</h1>
+      <h1>Welcome {user}</h1>
       <button onClick={handleLogout}>Sign Out</button>
       <br />
       <Link to={'/dashboard'}>Dashboard</Link>

@@ -17,7 +17,6 @@ const Login = () => {
     setconfirmed('')
 
     try {
-      console.log(email)
       await userLogin(email, password)
       navigate('/dashboard')
     } catch (error) {

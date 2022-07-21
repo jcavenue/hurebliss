@@ -7,8 +7,8 @@ import {
   ErrorPage,
   Contact,
 } from './Pages/Homepage'
-import { DashboardLayout, Dashboard, UserSettings } from './Pages/Dashboard'
-import { CreateUser, ViewUsers } from './Pages/Dashboard/ManageUsersSetting'
+import { DashboardLayout, Dashboard } from './Pages/Dashboard'
+import { CreateUser, ViewUsers, UserSettings } from './Pages/User-Settings'
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="about" element={<About />} />
         <Route path="contact" element={<Contact />} />
       </Route>
-      <Route path="/dashboard" element={<DashboardLayout />}>
+      <Route path="dashboard" element={<DashboardLayout />}>
         <Route index element={<Dashboard />} />
         <Route path="manage-users-setting" element={<UserSettings />}>
           <Route path="create-user" element={<CreateUser />} />
