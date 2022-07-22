@@ -9,13 +9,13 @@ import { AuthContextProvider } from './Context/AuthContext'
 const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
-  <>
+  <StrictMode>
     <BrowserRouter basename='/hurebliss'>
       <AuthContextProvider>
         <App />
       </AuthContextProvider>
     </BrowserRouter>
-  </>
+  </StrictMode>
 )
 
 // If you want your app to work offline and load faster, you can change
