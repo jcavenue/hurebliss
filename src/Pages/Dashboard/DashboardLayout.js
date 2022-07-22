@@ -10,7 +10,10 @@ const DashboardLayout = () => {
 
 	useEffect(() => { if(user_data){
 		console.log('here') 
-		setUser(user_data)}},[])
+		setUser(user_data)
+		}
+	// eslint-disable-next-line
+	},[])
 
   const handleLogout = async () => {
     try {
