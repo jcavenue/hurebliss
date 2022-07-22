@@ -11,7 +11,7 @@ const Login = () => {
 
   const navigate = useNavigate()
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault()
     setError('')
     setconfirmed('')
@@ -19,6 +19,7 @@ const Login = () => {
     userLogin(email, password)
       .then((response) => {
         console.log(response.user)
+				localStorage.setItem('hurebliss_data', JSON.stringify(response.user))
         setUser(response.user)
         navigate('/dashboard')
       })
