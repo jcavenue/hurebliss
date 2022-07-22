@@ -1,0 +1,11 @@
+{
+  "files": {
+    "main.js": "/hurebliss/static/js/main.acd0cd26.js",
+    "service-worker.js": "/hurebliss/service-worker.js",
+    "index.html": "/hurebliss/index.html",
+    "main.acd0cd26.js.map": "/hurebliss/static/js/main.acd0cd26.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.acd0cd26.js"
+  ]
+}
