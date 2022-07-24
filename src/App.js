@@ -31,7 +31,6 @@ function App() {
 				<Route path="unauthorized" element={<Unauthorized/>}/>
 				<Route path="*" element={<ErrorPage />} />
 			</Route>
-      
     </Routes>
   )
 }

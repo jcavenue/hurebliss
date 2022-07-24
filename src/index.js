@@ -10,7 +10,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'))
 
 root.render(
   <StrictMode>
-    <BrowserRouter basename='/hurebliss'>
+    <BrowserRouter>
       <AuthContextProvider>
         <App />
       </AuthContextProvider>
